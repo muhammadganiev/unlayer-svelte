@@ -1,6 +1,6 @@
 {
   "name": "unlayer-svelte",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Svelte 5 + TypeScript wrapper for the Unlayer Email Editor with demo",
   "type": "module",
   "private": false,
