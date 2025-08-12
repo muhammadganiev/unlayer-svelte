@@ -1,27 +1,28 @@
 # Unlayer Svelte
 
+Live demo: https://unlayer-svelte.vercel.app/
+
 Svelte 5 + TypeScript SDK wrapper for the Unlayer Email Editor, plus a minimal demo.
 
 ## Quick start
 
-- Install
+- Install deps (for local dev in this repo)
   - npm: `npm i`
-- Run demo
+- Run demo locally
   - `npm run dev:demo` then open http://localhost:5173
 - Build library
   - `npm run build` (outputs `dist/`)
 - Build demo (static)
   - `npm run build:demo` (outputs `dist-demo/`)
 
-## Local development
+## Installation (for users of the library)
 
-- `npm run dev` will also run the demo by default. Edit files under `src/lib` and `src/demo`.
+- npm: `npm i unlayer-svelte`
+- Peer deps: requires `svelte@^5`
 
 ## Usage (library)
 
-Install the package (locally, this repo exports the Svelte component).
-
-Example:
+Install the package and import the Svelte component.
 
 ```svelte
 <script lang="ts">

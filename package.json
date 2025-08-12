@@ -4,6 +4,10 @@
   "description": "Svelte 5 + TypeScript wrapper for the Unlayer Email Editor with demo",
   "type": "module",
   "private": false,
+  "main": "./dist/unlayer-svelte.umd.js",
+  "module": "./dist/unlayer-svelte.es.js",
+  "svelte": "./src/lib/UnlayerEditor.svelte",
+  "sideEffects": false,
   "exports": {
     ".": {
       "svelte": "./src/lib/UnlayerEditor.svelte",
@@ -22,7 +26,8 @@
     "build:demo": "vite build --mode demo",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
-    "prepare": "echo 'ready'"
+    "prepare": "echo 'ready'",
+    "prepublishOnly": "npm run check && npm run build"
   },
   "peerDependencies": {
     "svelte": "^5.0.0"

@@ -34,6 +34,10 @@
   let lastLoadedDesignKey: string | null = null
   let pendingDesign: any | null = null
 
+  /**
+   * Compute a stable key for a design object to detect external changes
+   * and avoid redundant loads/loops.
+   */
   function hashDesign(d: any | undefined): string | null {
     try {
       return d ? JSON.stringify(d) : null
@@ -42,13 +46,20 @@
     }
   }
 
+  /**
+   * Normalize incoming design objects to the shape expected by Unlayer.
+   * Accepts either raw designs or an object with a `template` wrapper.
+   */
   function normalizeDesign(d: any) {
     if (!d) return d
-    // Support files that wrap the design under `template`
     if (d.template && typeof d.template === 'object') return d.template
     return d
   }
 
+  /**
+   * Ensure the Unlayer embed script is present and resolved to a usable instance.
+   * Loads the CDN script once and reuses the global singleton on subsequent calls.
+   */
   async function ensureUnlayerLoaded(): Promise<Unlayer> {
     const w = window as any
     if (w.unlayer) return w.unlayer as Unlayer
@@ -73,6 +84,10 @@
     return unlayer
   }
 
+  /**
+   * Build a partial tools configuration enabling/disabling specific tools
+   * based on provided whitelist/blacklist.
+   */
   function buildToolsConfig() {
     const cfg: Record<string, any> = {}
     if (tools?.blacklist) {
@@ -86,6 +101,10 @@
 
   let unlayerRef: Unlayer | null = null
 
+  /**
+   * Initialize the Unlayer editor, wire up core event listeners, and optionally
+   * load a pending or initial design once the editor is ready.
+   */
   async function initEditor() {
     try {
       const unlayer = await ensureUnlayerLoaded()
@@ -105,9 +124,7 @@
       const onReady = () => {
         editorInitialized = true
         // Apply displayMode if provided via options
-        if (options?.displayMode && typeof unlayer.setDisplayMode === 'function') {
-          try { unlayer.setDisplayMode(options.displayMode) } catch {}
-        }
+        try { unlayer.setDisplayMode?.(options?.displayMode as any) } catch {}
         // Load initial design if provided or pending
         const toLoad = normalizeDesign(pendingDesign ?? design)
         if (toLoad) {
@@ -123,9 +140,7 @@
           unlayer.getDesign((d) => {
             dispatch('design-updated', d)
           })
-        } catch {
-          // noop
-        }
+        } catch {}
       }
 
       unlayer.addEventListener('editor:ready', onReady)
@@ -135,6 +150,9 @@
     }
   }
 
+  /**
+   * Export the current design as HTML and emit the result via `export-html`.
+   */
   export function exportHtml() {
     const unlayer = unlayerRef
     if (!unlayer) return
@@ -147,6 +165,9 @@
     }
   }
 
+  /**
+   * Load a new design into the editor, or defer until initialization completes.
+   */
   export function loadDesign(newDesign: any) {
     const unlayer = unlayerRef
     const normalized = normalizeDesign(newDesign)
@@ -162,7 +183,7 @@
     }
   }
 
-  // React to external design changes (avoid loops by comparing to last loaded)
+  // Watch external `design` prop and load it when it changes (avoids reload loops)
   $effect(() => {
     if (!design) return
     const normalized = normalizeDesign(design)
@@ -177,10 +198,12 @@
     }
   })
 
+  // Initialize editor lifecycle
   onMount(() => {
     initEditor()
   })
 
+  // Cleanup editor lifecycle
   onDestroy(() => {
     try {
       unlayerRef?.destroy()
@@ -192,7 +215,6 @@
   })
 </script>
 
-<!-- The container fills parent -->
 <div bind:this={containerEl} id={containerId} class="unlayer-container"></div>
 
 <style>
@@ -201,6 +223,6 @@
   .unlayer-container {
     width: 100%;
     height: 100%;
-    min-height: 400px; /* safety */
+    min-height: 400px;
   }
 </style>
