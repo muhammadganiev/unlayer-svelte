@@ -1,0 +1,8 @@
+{
+  "type": "template",
+  "version": "2.1.0",
+  "template": {
+    "counters": { "u_column": 1, "u_row": 1 },
+    "body": { "rows": [] }
+  }
+}

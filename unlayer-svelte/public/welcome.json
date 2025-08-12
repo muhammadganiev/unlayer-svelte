@@ -1,0 +1,52 @@
+{
+  "type": "template",
+  "version": "2.1.0",
+  "template": {
+    "counters": {
+      "u_column": 1,
+      "u_row": 1,
+      "u_content_text": 1,
+      "u_content_button": 1
+    },
+    "body": {
+      "rows": [
+        {
+          "cells": [1],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "containerPadding": "20px",
+                    "text": "<h1 style=\"text-align: center;\">Welcome to Unlayer + Svelte</h1><p style=\"text-align: center;\">This is a sample starter design. Click Export to preview the HTML.</p>",
+                    "fontSize": "18px"
+                  }
+                },
+                {
+                  "type": "button",
+                  "values": {
+                    "containerPadding": "0 20px 20px",
+                    "href": {
+                      "name": "web",
+                      "values": {
+                        "href": "https://unlayer.com",
+                        "target": "_blank"
+                      }
+                    },
+                    "text": "Open Unlayer",
+                    "borderRadius": "6px",
+                    "backgroundColor": "#111827"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "values": {
+        "backgroundColor": "#f8fafc"
+      }
+    }
+  }
+}
