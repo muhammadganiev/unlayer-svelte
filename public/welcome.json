@@ -1,0 +1,183 @@
+{
+  "type": "template",
+  "version": "2.1.0",
+  "template": {
+    "counters": {
+      "u_column": 8,
+      "u_row": 8,
+      "u_content_text": 4,
+      "u_content_button": 1,
+      "u_content_image": 4,
+      "u_content_divider": 1
+    },
+    "body": {
+      "rows": [
+        {
+          "cells": [1],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "containerPadding": "20px 20px 10px 20px",
+                    "text": "<h1 style=\"margin:0; text-align:center; font-family: Inter, Arial, sans-serif;\">✨ Welcome to <span style=\"color:#34495e;\"><strong>Unlayer</strong></span> + <span style=\"color:#ff3e00;\"><strong>Svelte</strong></span> ✨</h1>\n<p style=\"text-align:center; color:#4b5563; font-size:16px; line-height:24px;\">Build beautiful emails faster. Start from this template, customize the content, and export production-ready HTML.</p>",
+                    "fontSize": "12px"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cells": [1],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "image",
+                  "values": {
+                    "containerPadding": "0 20px 20px 20px",
+                    "textAlign": "center",
+                    "altText": "Hero Image",
+                    "src": {
+                      "url": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnp2cHhheDdnM3g0Y2c3N2ZyaG85Ym0wZTVxemZtY3l3YzZ2a3VociZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT39DiLtPSdYtYFhGU/giphy.gif"
+                    },
+                    "borderRadius": "8px"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cells": [1],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "containerPadding": "10px 20px 10px",
+                    "text": "<h3 style=\"margin:0; text-align:center;\">Drag & Drop</h3>\n<p style=\"text-align:center; color:#4b5563;\">Use the editor to arrange content quickly with a smooth, intuitive UI.</p>",
+                    "fontSize": "14px"
+                  }
+                },
+                {
+                  "type": "image",
+                  "values": {
+                    "containerPadding": "0 20px 20px",
+                    "textAlign": "center",
+                    "altText": "Drag & Drop",
+                    "src": {
+                      "url": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGltOWVsMWJseGZxOTlzOHd4NzJzazdnNWk2YzVleDEyM2t0enVpZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uANUx944fApX3I6get/giphy.gif"
+                    },
+                    "borderRadius": "6px"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cells": [1],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "containerPadding": "10px 20px 10px",
+                    "text": "<h3 style=\"margin:0; text-align:center;\">Responsive Emails</h3>\n<p style=\"text-align:center; color:#4b5563;\">Designs look great on desktop and mobile without extra work.</p>",
+                    "fontSize": "14px"
+                  }
+                },
+                {
+                  "type": "image",
+                  "values": {
+                    "containerPadding": "0 20px 20px",
+                    "textAlign": "center",
+                    "altText": "Responsive Emails",
+                    "src": {
+                      "url": "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2tkZG92cjdlczVndHZmbGVwc2FndWxrbzV2NWY2ZjBrcTRqbjRyeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igI3IcN3PICxOUdR51/giphy.gif"
+                    },
+                    "borderRadius": "6px"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cells": [1],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "button",
+                  "values": {
+                    "containerPadding": "10px 20px 30px",
+                    "textAlign": "center",
+                    "href": {
+                      "name": "web",
+                      "values": {
+                        "href": "https://unlayer.com",
+                        "target": "_blank"
+                      }
+                    },
+                    "text": "Get Started",
+                    "backgroundColor": "#111827",
+                    "textColor": "#FFFFFF",
+                    "borderRadius": "8px",
+                    "lineHeight": "120%",
+                    "padding": "12px 20px"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cells": [1],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "divider",
+                  "values": {
+                    "containerPadding": "0 20px",
+                    "border": {
+                      "width": "1px",
+                      "style": "solid",
+                      "color": "#e5e7eb"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "cells": [1],
+          "columns": [
+            {
+              "contents": [
+                {
+                  "type": "text",
+                  "values": {
+                    "containerPadding": "10px 20px 30px",
+                    "text": "<p style=\"text-align:center; color:#9ca3af; font-size:12px;\">You’re receiving this email because you signed up for updates. <a href=\"#\" style=\"color:#6b7280;\">Unsubscribe</a>.</p>",
+                    "fontSize": "12px"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "values": {
+        "backgroundColor": "#f6f9fc"
+      }
+    }
+  }
+}

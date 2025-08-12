@@ -41,8 +41,24 @@
 
 <div class="page">
   <header class="toolbar">
-    <button onclick={loadSample}>Load sample</button>
-    <button onclick={doExport}>Export HTML</button>
+    <a class="brand" href="https://unlayer.com" target="_blank" rel="noreferrer">
+      <img src="https://unlayer.com/_next/image?url=%2Fimages%2Flogo.webp&w=384&q=75" alt="Unlayer" />
+    </a>
+    <div class="actions">
+      <button class="btn" onclick={loadSample}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 3v10m0 0 4-4m-4 4-4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Load sample</span>
+      </button>
+      <button class="btn btn-outline" onclick={doExport}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14 3h7v7m0-7L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 14v4a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Export HTML</span>
+      </button>
+    </div>
     {#if errorMsg}
       <span class="error">{errorMsg}</span>
     {/if}
@@ -63,7 +79,7 @@
     <div class="modal" role="dialog" aria-modal="true">
       <div class="modal-content">
         <header class="modal-header">
-          <h3>Preview</h3>
+          <h3 ><span style="font-family:Arial, Helvetica, sans-serif;">Preview</span> </h3>
           <button aria-label="Close" onclick={() => (previewOpen = false)}>✕</button>
         </header>
         <iframe srcdoc={previewHtml} title="preview"></iframe>
@@ -76,9 +92,20 @@
 <style>
   .page { height: 100vh; display: flex; flex-direction: column; }
   .toolbar { padding: 8px; border-bottom: 1px solid #e5e7eb; display: flex; gap: 8px; align-items: center; }
+  .brand img { height: 24px; display: block; }
+  .actions { margin-left: auto; display: inline-flex; gap: 8px; align-items: center; }
+
+  /* Unlayer-like buttons */
+  .toolbar .btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; border: 1px solid #0f172a; background: #111827; color: #fff; font-weight: 500; line-height: 1; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+  .toolbar .btn:hover { background: #0f172a; }
+  .toolbar .btn:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+
+  .toolbar .btn.btn-outline { background: #ffffff; color: #111827; border-color: #e5e7eb; }
+  .toolbar .btn.btn-outline:hover { background: #f8fafc; border-color: #d1d5db; }
+
   .editor { flex: 1; min-height: 0; }
   .editor :global(.unlayer-container) { height: calc(100vh - 49px); }
-  .error { color: #b91c1c; margin-left: auto; }
+  .error { color: #b91c1c; margin-left: 8px; }
 
   .modal { position: fixed; inset: 0; display: grid; place-items: center; z-index: 50; }
   .backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.5); border: 0; cursor: pointer; }
